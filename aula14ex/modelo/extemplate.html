@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador Gênero/Idade</title>
+    <link rel="stylesheet" href="estiloex2.css">
+</head>
+<body>
+    <header>
+        <h1>
+            Verificador de Idade            
+        </h1>
+    </header> 
+    
+    <section>
+        <div>
+            <p>Ano de Nascimento: 
+            <input type="number" name="txtn1" id="txtn1"  ></p> 
+            <p>Sexo:
+            <input type="radio" name="radsex" id="mas" checked>
+            <label for="mas">Masculino</label>
+            <input type="radio" name="radsex" id="fem">
+            <label for="fem">Feminino</label></p>
+            <input type="button" value="verificar" onclick="calcular()"></p>
+        </div>
+        <div id = 'res'>
+        </div>
+
+        <div id = 'foto' onclick="calcular()">
+            <img id = 'imagem'>
+        </div>
+    </section>
+
+    <footer>
+        <p> &copy;CursoemVideo</p>
+    </footer>
+
+    <script src="scriptex2.js"></script>
+</body>
+</html>
