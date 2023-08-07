@@ -25,28 +25,7 @@
     </footer>
 
     <script>
-        let agora = new Date();
-        var hora = agora.getHours();
-        let imagem = document.createElement("img"); 
-
-        let data = document.getElementById("data"); // Seleciona o elemento com id "data"
-
-        data.innerHTML = `Agora são ${hora} horas`;
-
-        let imagemContainer = document.getElementById("imagemContainer"); // Seleciona o elemento com id "imagemContainer"
-
-        if (hora < 12) {
-            imagem.src = "caminho/para/imagem01.jpg";
-            acesso.style.backgroundColor = 'blue';
-        } else if (hora >= 12 && hora < 18) {
-            imagem.src = "imagens/dia-edit.png";
-            acesso.style.backgroundColor = 'orange';
-        } else if (hora >= 18 && hora < 24) {
-            imagem.src = "caminho/para/imagem03.jpg";
-            acesso.style.backgroundColor = 'black';
-        }
-
-        imagemContainer.appendChild(imagem); // Adiciona a imagem ao elemento "imagemContainer"
+        
     </script>
 </body>
 </html>
