@@ -15,12 +15,19 @@ section{
     height: 300px;
     margin: auto;
     border-radius: 10px;
+    box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.13);
 }
 
 div {
-    padding: 10px;
+    padding-top: 10px;
+    font-weight: bold;
 }
 
 #imagem{
-    padding-top: 20px;
+    padding-top: 0px;
+}
+
+footer{
+    font-style: italic;
+    font-weight: lighter;
 }
