@@ -12,11 +12,14 @@ section{
     color: black;
     margin: auto;
     background-color: white;
-    width: 600px;
-    height: 250px;
+    width: 500px;
     border-radius: 10px;
 }
 
 p{
+    padding: 10px;
+}
+
+img{
     padding: 10px;
 }
