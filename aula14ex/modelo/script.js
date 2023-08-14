@@ -1,27 +1,28 @@
-var begin = document.getElementById('iniciotxt')
-var res = document.getElementById('res')
-var end = document.getElementById('fimtxt')
-var step = document.getElementById('passotxt')
+    var begin = document.getElementById('iniciotxt')
+    var res = document.getElementById('res')
+    var end = document.getElementById('fimtxt')
+    var step = document.getElementById('passotxt')
+    
 
 function contagem(){
     let inicio = Number(begin.value)
     let fim = Number(end.value)
     let passo = Number(step.value)
 
-    let numeros = ""
+    let numerosp = ""
+    let numerosn = ""
 
-    
-    if (inicio <= 0){
-        res.innerHTML = `</br> Preencha o campo <strong>início</strong> corretamente. Comece com um número maior que 1`
-    } else if (passo > fim || passo <= 0){
-        window.alert('Escreva os passos corretamente. Devem ser maiores que 0 e menores que o fim')
-    } else if (fim <= 0){
-        window.alert ('Os números precisam ser inteiros e positivos.')
-    } else {
+    if (begin.value.length == 0 || end.value.length == 0 || step.value.length == 0){
+        window.alert('[ERRO] Digite valores inteiros nas caixas abaixo!')
+    } else if (inicio < fim){
        for (var c = inicio; c <= fim; c = c + passo){
-        numeros += c + " "
+        numerosp += c + "\u{1F449} "
         }
-        res.innerHTML = `</br> Mostrando ${numeros}`  
+        res.innerHTML = `</br> Mostrando ${numerosp} \u{1F3F4}`  
+    } else if (inicio > fim){
+        for (var c = inicio; c >= fim; c = c - passo){
+            numerosn += c + " \u{1F448}"
+        }
+        res.innerHTML = `</br> Mostrando \u{1F3F4} ${numerosn} `
     }
-    
 }
