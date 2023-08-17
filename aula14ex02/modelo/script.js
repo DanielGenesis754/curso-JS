@@ -1,5 +1,5 @@
 var n = document.getElementById('ntxt')
-var res = document.getElementById('res')
+
 
 function gerar(){
     let numero = String(n.value)
