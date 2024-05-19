@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Noventista</title>
+    <link rel="stylesheet" href="../estilo.css">
+    <script src="https://www.youtube.com/iframe_api"></script>
+</head>
+<body>
+    <header>
+        <h1>TV Noventista</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><label><input type="checkbox" id="programasCheckbox"> Programas</label></li>
+                <li><a href="#filmes">Filmes</a></li>
+                <li><label><input type="checkbox" id="desenhosCheckbox"> Desenhos Animados</label></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Bem-vindo à Minha TV Retrô</h2>
+            <p>Reviva os melhores momentos da TV do passado.</p>
+        </section>
+        <section id="programas">
+            <h2>Propagandas</h2>
+            <!-- Botão para iniciar a reprodução dos vídeos -->
+            <div class="video-container" id="video-frame"></div>
+            <!-- Conteúdo dos programas -->
+            <button id="startPlayback">Iniciar Reprodução</button>
+            <!-- Área onde os vídeos serão reproduzidos -->
+        </section>
+        <section id="filmes">
+            <h2>Filmes Antigos</h2>
+            <!-- Conteúdo dos filmes -->
+        </section>
+        <section id="desenhos">
+            <h2>Desenhos Animados</h2>
+            <!-- Conteúdo dos desenhos -->
+        </section>
+        <section id="contato">
+            <h2>Contato</h2>
+            <p>Entre em contato conosco para mais informações.</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Minha TV Retrô</p>
+    </footer>
+
+    <script src="estrutura.js"></script>
+</body>
+</html>
