@@ -13,9 +13,9 @@
         <nav>
             <ul>
                 <li><a href="#home">Início</a></li>
-                <li><label><input type="checkbox" id="programasCheckbox"> Programas</label></li>
+                <li><a href="#programas">Programas</a></li>
                 <li><a href="#filmes">Filmes</a></li>
-                <li><label><input type="checkbox" id="desenhosCheckbox"> Desenhos Animados</label></li>
+                <li><a href="#desenhos">Desenhos Animados</a></li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -26,21 +26,24 @@
             <p>Reviva os melhores momentos da TV do passado.</p>
         </section>
         <section id="programas">
-            <h2>Propagandas</h2>
-            <!-- Botão para iniciar a reprodução dos vídeos -->
-            <div class="video-container" id="video-frame"></div>
-            <!-- Conteúdo dos programas -->
-            <button id="startPlayback">Iniciar Reprodução</button>
-            <!-- Área onde os vídeos serão reproduzidos -->
+            <h2>
+                <label><input type="checkbox" id="programasCheckbox"> Programas</label>
+            </h2>
         </section>
         <section id="filmes">
             <h2>Filmes Antigos</h2>
             <!-- Conteúdo dos filmes -->
         </section>
         <section id="desenhos">
-            <h2>Desenhos Animados</h2>
-            <!-- Conteúdo dos desenhos -->
+            <h2>
+                <label><input type="checkbox" id="desenhosCheckbox"> Desenhos Animados</label>
+            </h2>
         </section>
+        <!-- Botão para iniciar a reprodução dos vídeos -->
+        <div class="video-container" id="video-frame"></div>
+        <!-- Conteúdo dos programas -->
+        <button id="startPlayback" style="display:none;">Iniciar Reprodução</button>
+        <!-- Área onde os vídeos serão reproduzidos -->
         <section id="contato">
             <h2>Contato</h2>
             <p>Entre em contato conosco para mais informações.</p>
@@ -50,6 +53,79 @@
         <p>&copy; 2024 Minha TV Retrô</p>
     </footer>
 
-    <script src="estrutura.js"></script>
+    <script>
+        // Arrays com os URLs dos vídeos
+        const videos = [
+            "https://www.youtube.com/embed/6he_c73pwjg?autoplay=1",
+            "https://www.youtube.com/embed/LC_MAVPZ_w8?autoplay=1",
+            "https://www.youtube.com/embed/drwS88sV6C4?autoplay=1",
+            "https://www.youtube.com/embed/-DFXhXvjK6g?autoplay=1",
+            "https://www.youtube.com/embed/OZ_q_ikyIUw?autoplay=1"
+        ];
+
+        const desenhosVideos = [
+            "https://www.youtube.com/embed/PsVVCilvVJE?autoplay=1"
+        ];
+
+        // Índices atuais dos vídeos
+        let currentVideoIndex = 0;
+        let currentDesenhosVideoIndex = 0;
+
+        // Função para reproduzir o próximo vídeo
+        function playNextVideo() {
+            const videoFrame = document.getElementById('video-frame');
+            let nextVideoUrl = "";
+
+            // Verifica qual checkbox está marcado e seleciona o próximo vídeo apropriado
+            if (document.getElementById('programasCheckbox').checked && currentVideoIndex < videos.length) {
+                nextVideoUrl = videos[currentVideoIndex];
+                currentVideoIndex++;
+            } else if (document.getElementById('desenhosCheckbox').checked && currentDesenhosVideoIndex < desenhosVideos.length) {
+                nextVideoUrl = desenhosVideos[currentDesenhosVideoIndex];
+                currentDesenhosVideoIndex++;
+            }
+
+            // Carrega o próximo vídeo
+            if (nextVideoUrl) {
+                videoFrame.innerHTML = `<iframe width="560" height="315" src="${nextVideoUrl}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
+            }
+        }
+
+        // Função para iniciar a reprodução dos vídeos
+        function playVideos() {
+            // Reproduz o primeiro vídeo
+            playNextVideo();
+            
+            // Configura um intervalo para reproduzir os vídeos subsequentes
+            setInterval(playNextVideo, 10000); // Altere o intervalo conforme necessário (em milissegundos)
+        }
+
+        // Evento para exibir o botão "Iniciar Reprodução" quando qualquer checkbox for marcado
+        function updatePlaybackButtonVisibility() {
+            const startPlaybackButton = document.getElementById('startPlayback');
+            if (document.getElementById('programasCheckbox').checked || document.getElementById('desenhosCheckbox').checked) {
+                startPlaybackButton.style.display = 'block';
+            } else {
+                startPlaybackButton.style.display = 'none';
+            }
+        }
+
+        document.getElementById('programasCheckbox').addEventListener('change', updatePlaybackButtonVisibility);
+        document.getElementById('desenhosCheckbox').addEventListener('change', updatePlaybackButtonVisibility);
+
+        // Chama a função playVideos() quando o botão for clicado
+        document.getElementById('startPlayback').addEventListener('click', playVideos);
+
+        // Marca a checkbox e exibe o botão ao clicar nos links do menu
+        document.querySelector('a[href="#programas"]').addEventListener('click', function() {
+            document.getElementById('programasCheckbox').checked = true;
+            updatePlaybackButtonVisibility();
+        });
+
+        document.querySelector('a[href="#desenhos"]').addEventListener('click', function() {
+            document.getElementById('desenhosCheckbox').checked = true;
+            updatePlaybackButtonVisibility();
+        });
+    </script>
 </body>
 </html>
