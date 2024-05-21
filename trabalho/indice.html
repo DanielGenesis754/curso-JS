@@ -7,24 +7,60 @@
     <link rel="stylesheet" href="../estilo.css">
     <script src="https://www.youtube.com/iframe_api"></script>
     <style>
-        /* Estilo para desativar a interação do mouse com o player de vídeo */
-        #video-frame iframe {
+          /* Estilo para desativar a interação do mouse com o player de vídeo */
+          #video-frame iframe {
             pointer-events: none;
+        }
+        /* Estilo para desativar a interação do mouse com o player de vídeo */
+        #video-frame-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px; /* Ajuste conforme necessário */
+            margin: auto;
+        }
+
+        #tv-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        position: relative;
+        z-index: 2;
+}
+
+        #video-frame {
+            position: absolute;
+            left: 15%;
+            top: 16%; /* Ajuste conforme necessário */
+            width: 69%; /* Ajuste conforme necessário */
+            height: 52%; /* Ajuste conforme necessário */
+        }
+
+        .video-container {
+            position: relative;
+            width: 150%;
+            height: 100%;
+            padding-bottom: 0%; /* 16:9 aspect ratio */
+            overflow: hidden;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Estilo para as checkboxes */
+        .checkbox-container {
+            display: inline-block;
+            margin-right: 20px; /* Ajuste o espaçamento entre as checkboxes conforme necessário */
         }
     </style>
 </head>
 <body>
     <header>
         <h1>TV Noventista</h1>
-        <nav>
-            <ul>
-                <li><a href="#home">Início</a></li>
-                <li><a href="#programas">Programas</a></li>
-                <li><a href="#filmes">Filmes</a></li>
-                <li><a href="#desenhos">Desenhos Animados</a></li>
-                <li><a href="#contato">Contato</a></li>
-            </ul>
-        </nav>
     </header>
     <main>
         <section id="home">
@@ -33,24 +69,26 @@
         </section>
         <section id="programas">
             <h2>
-                <label><input type="checkbox" id="programasCheckbox"> Programas</label>
+                <div class="checkbox-container">
+                    <label><input type="checkbox" id="programasCheckbox"> Programas</label>
+                </div>
+                <div class="checkbox-container">
+                    <label><input type="checkbox" id="desenhosCheckbox"> Desenhos Animados</label>
+                </div>
             </h2>
         </section>
         <section id="filmes">
             <h2>Filmes Antigos</h2>
             <!-- Conteúdo dos filmes -->
         </section>
-        <section id="desenhos">
-            <h2>
-                <label><input type="checkbox" id="desenhosCheckbox"> Desenhos Animados</label>
-            </h2>
-        </section>
+        <!-- Frame de vídeo dentro da imagem da TV -->
+        <div id="video-frame-container">
+            <img id="tv-image" src="oldtelevision.png" alt="TV Antiga">
+            <div class="video-container" id="video-frame"></div>
+        </div>
         <!-- Botões para iniciar e trocar os vídeos -->
-        <div class="video-container" id="video-frame"></div>
         <button id="togglePlayback">Ligar Reprodução</button>
         <button id="nextVideo">Próximo Vídeo</button>
-        <!-- Vídeo de transição -->
-        
         <!-- Área onde os vídeos serão reproduzidos -->
         <section id="contato">
             <h2>Contato</h2>
