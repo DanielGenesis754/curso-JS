@@ -13,7 +13,7 @@ const desenhosVideos = [
     "https://www.youtube.com/embed/36v6XTKw1XI?autoplay=1"
 ];
 
-const transitionVideoUrl = "https://www.youtube.com/embed/wf2Ojwq4gYU?controls=0&showinfo=0&modestbranding=1&rel=0&iv_load_policy=3&autoplay=1" ;
+const transitionVideoUrl = "C:\\Users\\morad\\OneDrive\\Documentos\\GitHub\\curso-JS\\trabalho\\TvStatic.mp4";
 
 let isPlaybackOn = false;
 let lastVideoIndex = -1;

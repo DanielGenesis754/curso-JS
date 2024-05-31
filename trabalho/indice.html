@@ -4,82 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV Noventista</title>
-    <link rel="stylesheet" href="../estilo.css">
-    <script src="https://www.youtube.com/iframe_api"></script>
-    <style>
-          /* Estilo para desativar a interação do mouse com o player de vídeo */
-          #video-frame iframe {
-            pointer-events: none;
-        }
-        /* Estilo para desativar a interação do mouse com o player de vídeo */
-        #video-frame-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px; /* Ajuste conforme necessário */
-            margin: auto;
-        }
-
-        #tv-image {
-        width: 100%;
-        height: auto;
-        display: block;
-        position: relative;
-        z-index: 2;
-}
-
-        #video-frame {
-            position: absolute;
-            left: 15%;
-            top: 16%; /* Ajuste conforme necessário */
-            width: 69%; /* Ajuste conforme necessário */
-            height: 52%; /* Ajuste conforme necessário */
-        }
-
-        .video-container {
-            position: relative;
-            width: 150%;
-            height: 100%;
-            padding-bottom: 0%; /* 16:9 aspect ratio */
-            overflow: hidden;
-        }
-
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Estilo para as checkboxes */
-        .checkbox-container {
-            display: inline-block;
-            margin-right: 20px; /* Ajuste o espaçamento entre as checkboxes conforme necessário */
-        }
-    </style>
+    <link rel="stylesheet" href="estilo.css">
 </head>
 <body>
-    <header>
-        <h1>TV Noventista</h1>
-    </header>
     <main>
-        <section id="home">
-            <h2>Bem-vindo à Minha TV Retrô</h2>
-            <p>Reviva os melhores momentos da TV do passado.</p>
-        </section>
-        <section id="programas">
-            <h2>
+        <section id="programas" class="programasc">
+
                 <div class="checkbox-container">
                     <label><input type="checkbox" id="programasCheckbox"> Programas</label>
                 </div>
                 <div class="checkbox-container">
                     <label><input type="checkbox" id="desenhosCheckbox"> Desenhos Animados</label>
                 </div>
-            </h2>
-        </section>
-        <section id="filmes">
-            <h2>Filmes Antigos</h2>
-            <!-- Conteúdo dos filmes -->
         </section>
         <!-- Frame de vídeo dentro da imagem da TV -->
         <div id="video-frame-container">
@@ -90,15 +26,192 @@
         <button id="togglePlayback">Ligar Reprodução</button>
         <button id="nextVideo">Próximo Vídeo</button>
         <!-- Área onde os vídeos serão reproduzidos -->
-        <section id="contato">
-            <h2>Contato</h2>
-            <p>Entre em contato conosco para mais informações.</p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Minha TV Retrô</p>
-    </footer>
 
-    <script src="estrutura.js"></script>
+
+    <script>
+        const videos = [
+            "https://www.youtube.com/embed/6he_c73pwjg?autoplay=1",
+            "https://www.youtube.com/embed/LC_MAVPZ_w8?autoplay=1",
+            "https://www.youtube.com/embed/drwS88sV6C4?autoplay=1",
+            "https://www.youtube.com/embed/-DFXhXvjK6g?autoplay=1",
+            "https://www.youtube.com/embed/OZ_q_ikyIUw?autoplay=1",
+            "https://www.youtube.com/embed/daAxjWGUtjk?autoplay=1",
+            "https://www.youtube.com/embed/iOizgyMt3ZM?autoplay=1",
+            "https://www.youtube.com/embed/QNxWiXPdzP4?autoplay=1",
+            "https://www.youtube.com/embed/KaETWm-h63M?autoplay=1",
+            "https://www.youtube.com/embed/pw0QXIc7YoM?autoplay=1",
+            "https://www.youtube.com/embed/lZCFadRuMyw?autoplay=1",
+            "https://www.youtube.com/embed/OJWa1mwUmN8?autoplay=1",
+            "https://www.youtube.com/embed/7AIAxVRDvBA?autoplay=1",
+            "https://www.youtube.com/embed/qTrumUuvuz0?autoplay=1",
+            "https://www.youtube.com/embed/kOJ42ycaaIg?autoplay=1",
+            "https://www.youtube.com/embed/UokmBM1HDRk?autoplay=1",
+            "https://www.youtube.com/embed/fVZ-WEIPO3I?autoplay=1",
+            "https://www.youtube.com/embed/071Vb-kYQOw?autoplay=1",
+            "https://www.youtube.com/embed/4XtO7KCxdf8?autoplay=1",
+            "https://www.youtube.com/embed/X1ihIAycod8?autoplay=1",
+            "https://www.youtube.com/embed/PZfjjn_UW1I?autoplay=1",
+            "https://www.youtube.com/embed/E0hDQZxpiqI?autoplay=1",
+            "https://www.youtube.com/embed/7EHLPU9O_sk?autoplay=1",
+            "https://www.youtube.com/embed/J-mZtKNZkJY?autoplay=1",
+            "https://www.youtube.com/embed/17aFHlyeyc4?autoplay=1",
+            "https://www.youtube.com/embed/nKqDmoUE7Ho?autoplay=1",
+            "https://www.youtube.com/embed/9XY41etYm0k?autoplay=1",
+            "https://www.youtube.com/embed/xvIpDEJWDnM?autoplay=1",
+            "https://www.youtube.com/embed/N7GkMeNhkDs?autoplay=1",
+            "https://www.youtube.com/embed/2FGPplo1NZE?autoplay=1",
+            "https://www.youtube.com/embed/jnbZwFFRLWM?autoplay=1",
+            "https://www.youtube.com/embed/7G7FeYOHiWc?autoplay=1",
+            "https://www.youtube.com/embed/79h-lYSudK8?autoplay=1",
+            "https://www.youtube.com/embed/Lr3W9_4k7Fc?autoplay=1",
+            "https://www.youtube.com/embed/7XmiAd7Dj3s?autoplay=1",
+            "https://www.youtube.com/embed/kSohDBHi5LU?autoplay=1",
+            "https://www.youtube.com/embed/GPyhVTaQSR8?autoplay=1",
+            "https://www.youtube.com/embed/gGy1bAErv7g?autoplay=1",
+            "https://www.youtube.com/embed/lE8HUZhc6zE?autoplay=1",
+            "https://www.youtube.com/embed/5-j8YlGEs2k?autoplay=1",
+            "https://www.youtube.com/embed/QsiqJ0xpInQ?autoplay=1",
+            "https://www.youtube.com/embed/R9BxbWPiChQ?autoplay=1",
+            "https://www.youtube.com/embed/F1uN-bpK4iM?autoplay=1",
+            "https://www.youtube.com/embed/nAtbh3tIUCU?autoplay=1",
+            "https://www.youtube.com/embed/hTVDqhJz350?autoplay=1",
+            "https://www.youtube.com/embed/Mb9J09f8T-I?autoplay=1",
+            "https://www.youtube.com/embed/zj5HeV5ddJc?autoplay=1",
+            "https://www.youtube.com/embed/2vnd7CJYXFM?autoplay=1",
+            "https://www.youtube.com/embed/3mmPqbtJND4?autoplay=1",
+            "https://www.youtube.com/embed/3mmPqbtJND4?autoplay=1",
+            "https://www.youtube.com/embed/HYycrFNThp0?autoplay=1",
+            "https://www.youtube.com/embed/NLSCUUZrfjc?autoplay=1",
+            "https://www.youtube.com/embed/zQEJomLW3ao?autoplay=1",
+            "https://www.youtube.com/embed/JjKcwMbJF1k?autoplay=1",
+            "https://www.youtube.com/embed/kL35cGsTpyc?autoplay=1",
+            "https://www.youtube.com/embed/ty3d3ttAbcs?autoplay=1",
+            "https://www.youtube.com/embed/5zGnEV-SEsw?autoplay=1",
+            "https://www.youtube.com/embed/nuXX8fwDnVg?autoplay=1",
+
+
+
+        ];
+
+        const desenhosVideos = [
+            "https://www.youtube.com/embed/PsVVCilvVJE?autoplay=1",
+            "https://www.youtube.com/embed/d99lVZXc56U?autoplay=1",
+            "https://www.youtube.com/embed/e5IUYHm78ts?autoplay=1",
+            "https://www.youtube.com/embed/36v6XTKw1XI?autoplay=1"
+        ];
+
+        const transitionVideoUrl = "C:\\Users\\morad\\OneDrive\\Documentos\\GitHub\\curso-JS\\trabalho\\TvStatic.mp4";
+
+        let isPlaybackOn = false;
+        let lastVideoIndex = -1;
+
+        function getRandomVideo(videosArray, lastIndex) {
+            let randomIndex;
+            do {
+                randomIndex = Math.floor(Math.random() * videosArray.length);
+            } while (randomIndex === lastIndex);
+            return { url: videosArray[randomIndex], index: randomIndex };
+        }
+
+        function getNextRandomVideo() {
+            let videosArray = [];
+
+            if (document.getElementById('programasCheckbox').checked) {
+                videosArray = videosArray.concat(videos);
+            }
+
+            if (document.getElementById('desenhosCheckbox').checked) {
+                videosArray = videosArray.concat(desenhosVideos);
+            }
+
+            if (videosArray.length === 0) {
+                return { url: null, index: -1 };
+            }
+
+            return getRandomVideo(videosArray, lastVideoIndex);
+        }
+
+        function playTransitionVideo(callback) {
+            const videoFrame = document.getElementById('video-frame');
+            videoFrame.innerHTML = `
+                <video 
+                    width="560" 
+                    height="315" 
+                    src="${transitionVideoUrl}" 
+                    type="video/mp4"
+                    autoplay
+                    muted
+                ></video>`;
+            
+            const transitionVideoElement = videoFrame.querySelector('video');
+            transitionVideoElement.onended = callback;
+        }
+
+        function playNextVideo() {
+            const videoFrame = document.getElementById('video-frame');
+            const nextVideo = getNextRandomVideo();
+
+            if (nextVideo.url) {
+                playTransitionVideo(() => {
+                    videoFrame.innerHTML = `
+                        <iframe 
+                            width="560" 
+                            height="315" 
+                            src="${nextVideo.url}" 
+                            title="YouTube video player" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            referrerpolicy="strict-origin-when-cross-origin" 
+                            allowfullscreen
+                        ></iframe>`;
+                });
+            }
+
+            lastVideoIndex = nextVideo.index;
+        }
+
+        function togglePlayback() {
+            if (isPlaybackOn) {
+                const videoFrame = document.getElementById('video-frame');
+                videoFrame.innerHTML = '';
+                document.getElementById('togglePlayback').innerText = 'Ligar Reprodução';
+                isPlaybackOn = false;
+            } else {
+                playNextVideo();
+                document.getElementById('togglePlayback').innerText = 'Desligar Reprodução';
+                isPlaybackOn = true;
+            }
+        }
+
+        function updatePlaybackButtonVisibility() {
+            const nextVideoButton = document.getElementById('togglePlayback');
+            if (document.getElementById('programasCheckbox').checked || document.getElementById('desenhosCheckbox').checked) {
+                nextVideoButton.removeAttribute('disabled');
+            } else {
+                nextVideoButton.setAttribute('disabled', true);
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            updatePlaybackButtonVisibility();
+            document.getElementById('programasCheckbox').addEventListener('change', updatePlaybackButtonVisibility);
+            document.getElementById('desenhosCheckbox').addEventListener('change', updatePlaybackButtonVisibility);
+            document.getElementById('togglePlayback').addEventListener('click', togglePlayback);
+            document.getElementById('nextVideo').addEventListener('click', () => {
+                if (isPlaybackOn) {
+                    playNextVideo();
+                }
+            });
+            document.querySelector('a[href="#programas"]').addEventListener('click', () => {
+                document.getElementById('programasCheckbox').checked = true;
+                updatePlaybackButtonVisibility();
+            });
+            document.querySelector('a[href="#desenhos"]').addEventListener('click', () => {
+                document.getElementById('desenhosCheckbox').checked = true;
+                updatePlaybackButtonVisibility();
+            });
+        });
+
+    </script>
 </body>
 </html>
