@@ -88,11 +88,11 @@ function togglePlayback() {
     if (isPlaybackOn) {
         const videoFrame = document.getElementById('video-frame');
         videoFrame.innerHTML = '';
-        document.getElementById('togglePlayback').innerText = 'Ligar Reprodução';
+        document.getElementById('togglePlayback').innerText = 'Ligar TV';
         isPlaybackOn = false;
     } else {
         playNextVideo();
-        document.getElementById('togglePlayback').innerText = 'Desligar Reprodução';
+        document.getElementById('togglePlayback').innerText = 'Desligar TV';
         isPlaybackOn = true;
     }
 }
