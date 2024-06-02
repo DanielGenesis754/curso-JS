@@ -5,17 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TV Antiga</title>
     <link rel="stylesheet" href="estilo.css">
+    <style>
+        /* Esconder a caixa quando a largura da janela for 1100px ou menor */
+        @media (max-width: 1100px) {
+            .programasc {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
     <main>
         <section id="programas" class="programasc">
-
-                <div class="checkbox-container">
-                    <label><input type="checkbox" id="programasCheckbox"> Programas</label>
-                </div>
-                <div class="checkbox-container">
-                    <label><input type="checkbox" id="desenhosCheckbox"> Desenhos Animados</label>
-                </div>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="programasCheckbox"> Propagandas</label>
+            </div>
+            <div class="checkbox-container">
+                <label><input type="checkbox" id="desenhosCheckbox"> Desenhos Animados</label>
+            </div>
         </section>
         <!-- Frame de vídeo dentro da imagem da TV -->
         <div id="video-frame-container">
@@ -26,7 +33,6 @@
         <button id="togglePlayback">Ligar TV</button>
         <button id="nextVideo">></button>
         <!-- Área onde os vídeos serão reproduzidos -->
-
 
     <script>
         const videos = [
@@ -131,7 +137,6 @@
 "https://www.youtube.com/embed/uz18ACdBg4w?autoplay=1&start=15&loop=1&playlist=uz18ACdBg4w",
         
         ];
-
         const transitionVideoUrl = "C:\\Users\\morad\\OneDrive\\Documentos\\GitHub\\curso-JS\\trabalho\\TvStatic.mp4";
 
         let isPlaybackOn = false;
